@@ -1,6 +1,6 @@
 module com.example.crypto {
-    requires javafx.controls;
-    requires javafx.fxml;
+    //requires javafx.controls;
+    //requires javafx.fxml;
 
 
     opens com.example.crypto to javafx.fxml;
