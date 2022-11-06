@@ -161,7 +161,7 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
         }
         System.out.println("BLOC PERMUTE");
 
-        int[] testINVpermutation=invPermutation(testpermutG,tabletest);
+        int[] testINVpermutation=invPermutation(testpermutG,testpermutation);
 
         for (int s: testINVpermutation) {
             System.out.print(s + "\t");
