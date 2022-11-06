@@ -72,20 +72,20 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
         int[] res = tab.stream().mapToInt(i -> i).toArray();
         return res;
     }
-    public int[] permutation(int[] tab_permutation, int[] bloc) {
-
+    public static int[] permutation(int[] tab_permutation, int[] bloc) {
         int n = bloc.length;
-        int[] tab = bloc;
+        int[] tab = new int[bloc.length];
         for (int i = 0; i<n; i++) {
             tab[i]=bloc[tab_permutation[i]];
         }
+
         return tab;
     }
 
-    public int[] invPermutation(int[] tab_permutation, int[] bloc) {
+    public static int[] invPermutation(int[] tab_permutation, int[] bloc) {
 
         int n = bloc.length;
-        int[] tab = bloc;
+        int[] tab = new int[bloc.length];
         for (int i = 0; i<n; i++) {
             tab[tab_permutation[i]]=bloc[i];
         }
@@ -120,8 +120,8 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
     public static void main(String[] args) throws UnsupportedEncodingException {
 
         System.out.println(bitsToString(stringToBits("Motdepassedelamortquitue!")));
-        int[] testdecoupe={1,2,3,4,5,6,7,8};
-        int[][] testdecoupeFinal=decoupage(testdecoupe,4);
+        int[] tabletest={1,2,3,4,5,6,7,8};
+        int[][] testdecoupeFinal=decoupage(tabletest,4);
 
         for (int[] tab: testdecoupeFinal) {
             for (int s: tab) {
@@ -135,9 +135,24 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
             System.out.print(s + "\t");
         }
         System.out.println("\n");
-        int[] testpermut= generePermut(5);
-        for (int s: testpermut) {
+        int[] testpermutG= generePermut(8);
+        for (int s: testpermutG) {
             System.out.print(s + "\t");
         }
+        System.out.println("BLOC GENERE PERMUTE");
+        int[] testpermutation=permutation(testpermutG,tabletest);
+
+        for (int s: testpermutation) {
+            System.out.print(s + "\t");
+        }
+        System.out.println("BLOC PERMUTE");
+
+        int[] testINVpermutation=invPermutation(testpermutG,tabletest);
+
+        for (int s: testINVpermutation) {
+            System.out.print(s + "\t");
+        }
+        System.out.println("BLOC INV PERMUTE");
+
     }
 }
