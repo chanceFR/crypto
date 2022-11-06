@@ -85,6 +85,19 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
         }
         return blocRecolle;
     }
+    //calcule tab1 XOR tab2
+    public int[] xor (int[] tab1, int[] tab2 )  {
+        int[] blocXOR= new int[tab1.length];
+        for (int i =0; i<tab1.length;i++) {
+            if (tab1[i]==tab2[i]){
+                blocXOR[i]=0;
+            }
+            else {
+                blocXOR[i] = 1;
+            }
+        }
+        return blocXOR;
+    }
     public static void main(String[] args) throws UnsupportedEncodingException {
 
         System.out.println(bitsToString(stringToBits("Motdepassedelamortquitue!")));
