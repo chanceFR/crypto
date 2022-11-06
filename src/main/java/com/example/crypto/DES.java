@@ -72,9 +72,22 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
         int[] res = tab.stream().mapToInt(i -> i).toArray();
         return res;
     }
+    //recolle tous les blocs
+    static int[] recollage_bloc(int[][] blocs){
+        int[] blocRecolle=new int[blocs.length*blocs[0].length];
+        int index=0;
+        for (int[] tab: blocs) {
+            for (int s: tab) {
+                blocRecolle[index]=s;
+                index+=1;
+            }
+            System.out.println("\n");
+        }
+        return blocRecolle;
+    }
     public static void main(String[] args) throws UnsupportedEncodingException {
 
-        /*System.out.println(bitsToString(stringToBits("Motdepassedelamortquitue!")));
+        System.out.println(bitsToString(stringToBits("Motdepassedelamortquitue!")));
         int[] testdecoupe={1,2,3,4,5,6,7,8};
         int[][] testdecoupeFinal=decoupage(testdecoupe,4);
 
@@ -83,7 +96,13 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
                 System.out.print(s + "\t");
             }
             System.out.println("\n");
-        }*/
+        }
+        int[] testrecolle=recollage_bloc(testdecoupeFinal);
+
+        for (int s: testrecolle) {
+            System.out.print(s + "\t");
+        }
+        System.out.println("\n");
         int[] testpermut= generePermut(5);
         for (int s: testpermut) {
             System.out.print(s + "\t");
