@@ -117,6 +117,20 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
         }
         return blocXOR;
     }
+    static int[] decalle_gauche(int[] bloc, int nbCran){
+        int[] blocdecal= new int[bloc.length];
+        int n=bloc.length;
+        for (int i =0; i<n;i++) {
+            if (i+nbCran>=n){
+                blocdecal[i]=bloc[(i+nbCran)-n];
+            }
+            else{
+                blocdecal[i]=bloc[i+nbCran];
+            }
+
+        }
+        return blocdecal;
+    }
     public static void main(String[] args) throws UnsupportedEncodingException {
 
         System.out.println(bitsToString(stringToBits("Motdepassedelamortquitue!")));
@@ -153,6 +167,13 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
             System.out.print(s + "\t");
         }
         System.out.println("BLOC INV PERMUTE");
+
+        int[] testdecal=decalle_gauche(tabletest,2);
+
+        for (int s: testdecal) {
+            System.out.print(s + "\t");
+        }
+        System.out.println("BLOC GAUCHE");
 
     }
 }
