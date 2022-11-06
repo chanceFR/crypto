@@ -72,6 +72,25 @@ public static int[][] decoupage(int[] bloc, int nbBlocs) {
         int[] res = tab.stream().mapToInt(i -> i).toArray();
         return res;
     }
+    public int[] permutation(int[] tab_permutation, int[] bloc) {
+
+        int n = bloc.length;
+        int[] tab = bloc;
+        for (int i = 0; i<n; i++) {
+            tab[i]=bloc[tab_permutation[i]];
+        }
+        return tab;
+    }
+
+    public int[] invPermutation(int[] tab_permutation, int[] bloc) {
+
+        int n = bloc.length;
+        int[] tab = bloc;
+        for (int i = 0; i<n; i++) {
+            tab[tab_permutation[i]]=bloc[i];
+        }
+        return tab;
+    }
     //recolle tous les blocs
     static int[] recollage_bloc(int[][] blocs){
         int[] blocRecolle=new int[blocs.length*blocs[0].length];
